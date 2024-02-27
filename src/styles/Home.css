@@ -1,0 +1,29 @@
+.homeimage img {
+    width: 100%;
+    height:auto  ;
+  }
+
+  .carlogos img {
+    width: 100%;
+    height:auto  ;
+  }
+
+
+
+  .interior-button {
+    position: absolute;
+    top: 123%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #A63520;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Positioning for the carinterior image container */
+  .carinterior img {
+    width: 25%; /* Adjust the percentage as needed */
+  }

@@ -1,0 +1,14 @@
+.App {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  font-family:Arial, Helvetica, sans-serif
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0;
+  outline: 0;
+}
