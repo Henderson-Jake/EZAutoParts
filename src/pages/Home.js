@@ -2,6 +2,8 @@ import React from 'react'
 import car from '../assets/car.png'
 import carlogos from '../assets/carlogos.png'
 import carinterior from '../assets/carinterior.png'
+import bodyparts from '../assets/bodyparts.png'
+import wheels from '../assets/wheels.png'
 
 import '../styles/Home.css';
 
@@ -18,6 +20,14 @@ import '../styles/Home.css';
           <img src={carinterior} alt="carinterior" />
           <button class="interior-button">Shop Now</button>
           </div>
+          <div className='bodyparts'>
+            <img src={bodyparts} alt='carparts'/>
+            <button class='bodyparts-button'>Shop Now</button>
+          </div>
+          <div className= 'wheels'>
+            <img src={wheels} alt='wheels'/>
+            <button className='wheels-button'>Shop Now</button>
+            </div>
       </div>
       );
       }

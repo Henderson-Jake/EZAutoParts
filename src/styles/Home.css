@@ -12,8 +12,8 @@
 
   .interior-button {
     position: absolute;
-    top: 123%;
-    left: 12%;
+    top: 125%;
+    left: 14%;
     transform: translate(-50%, -50%);
     padding: 10px 20px;
     background-color: #A63520;
@@ -25,5 +25,59 @@
   
   /* Positioning for the carinterior image container */
   .carinterior img {
-    width: 25%; /* Adjust the percentage as needed */
+    width: 30%;
+    height: 34%;
+    position: absolute;
+  top: 120%; /* Adjust vertical position as needed */
+  left: 15%; /* Adjust horizontal position as needed */
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
   }
+
+  .bodyparts img{
+    width: 30%;
+    height: 34%;
+    position: absolute;
+  top: 120%; /* Adjust vertical position as needed */
+  left: 50%; /* Adjust horizontal position as needed */
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+.bodyparts-button{
+  position: absolute;
+  top: 125%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: #A63520;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.wheels img {
+  width: 30%; /* Adjust the percentage as needed */
+  height: 34%; /* Maintain aspect ratio */
+  position: absolute;
+  top: 120%; /* Adjust vertical position as needed */
+  left: 85%;  /*Adjust horizontal position as needed */
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+.wheels-button{
+  position: absolute;
+  top: 125%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: #A63520;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+
+}
