@@ -1,0 +1,61 @@
+.VehicleSelectionTool {
+  text-align: center;
+    transform: translate(550%, -0%);
+  margin-top: 20px;
+  padding: 20px;
+  height: fit-content;
+  width: fit-content;
+  background-color: #A63520;
+  border-radius: 30px;
+
+}
+
+select {
+  margin: 5px;
+}
+.vehicleInputs {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  color: white;
+}
+
+.VehicleSelectionTool label {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+}
+.VehicleSelectionTool select {
+  border-radius: 5px; 
+  font-size: 16px;
+  padding: 10px; 
+}
+
+.VehicleSelectionTool button {
+  padding: 10px 20px; /* Increase padding to make the button bigger */
+  font-size: 16px; /* Increase font size */
+  border: 2px solid white; /* Add white border */
+  border-radius: 5px; /* Add border-radius to make it slightly round */
+  background-color: transparent; /* Make background transparent */
+  color: white; /* Set text color to white */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.VehicleSelectionTool button:hover {
+  background-color: white; /* Change background color on hover */
+  color: red; /* Change text color on hover */
+}
+
+.submitContainer button {
+  padding: 10px 20px; /* Add padding */
+  font-size: 16px; /* Increase font size */
+  border: 2px solid white; /* White border */
+  border-radius: 5px; /* Round the edges */
+  background-color:#A63520; /* Red background color */
+  color: white; /* White text color */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+.submitContainer button:hover {
+  background-color: white; /* White background color on hover */
+  color: #A63520; /* Red text color on hover */
+}

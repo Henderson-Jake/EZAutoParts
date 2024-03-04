@@ -4,15 +4,19 @@ import carlogos from '../assets/carlogos.png'
 import carinterior from '../assets/carinterior.png'
 import bodyparts from '../assets/bodyparts.png'
 import wheels from '../assets/wheels.png'
+import VehicleSelectionTool from '../components/VehicleSelectionTool'
 
 import '../styles/Home.css';
 
     function Home() {
       return (
         <div className="home">
-      <div className="homeimage">
+    <div className="homeimage" style={{ position: 'relative' }}>
+        <VehicleSelectionTool  />
         <img src={car} alt="car" />
       </div>
+
+  
       <div className="carlogos">
         <img src={carlogos} alt="carlogos" />
         </div>

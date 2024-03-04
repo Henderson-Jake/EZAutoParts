@@ -19,11 +19,14 @@ function App() {
         <Route path ="/about" element={<About />} />
         <Route path ="/FAQ" element={<FAQ />} />
         <Route path ="/Contact" element={<Contact />} />
+      
 
         </Routes>
         
         
         </BrowserRouter>
+
+        
          
         
     

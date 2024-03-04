@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/Logo.png';
 import { Link } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -6,28 +6,48 @@ import Searchbar from './Searchbar';
 import '../styles/Navbar.css';
 
 function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isLoginSuccess, setIsLoginSuccess] = useState(true); // Track login success
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsLoginOpen(false); // Close the login dropdown if open
   };
+
+  const toggleLogin = () => {
+    setIsLoginOpen(!isLoginOpen);
+    setIsMenuOpen(false); // Close the menu dropdown if open
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Check login credentials here (dummy check for demonstration)
+    if (e.target.username.value === 'username' && e.target.password.value === 'password') {
+      setIsLoginSuccess(true);
+      // Perform login actions (e.g., redirect, store user info in state)
+    } else {
+      setIsLoginSuccess(false);
+    }
+  };
+
   return (
     <div className="navbar">
       <div className="leftSide">
-      <div className="dropdown">
-            <button className="dropbtn" onClick={toggleDropdown}>
-              Menu
-            </button>
-            {isDropdownOpen && (
-              <div className="dropdown-content">
-                <Link to="/Service1">Filters</Link>
-                <Link to="/Service2">Headlights</Link>
-                <Link to="/Service3">Battery</Link>
-              </div>
-            )}
-          </div>
-      <Link to="/">
-        <img src={Logo} alt="Logo" />
+        <div className="menu">
+          <button className="menubtn" onClick={toggleMenu}>
+            Menu
+          </button>
+          {isMenuOpen && (
+            <div className="menu-content">
+              <Link to="/Service1">Filters</Link>
+              <Link to="/Service2">Headlights</Link>
+              <Link to="/Service3">Battery</Link>
+            </div>
+          )}
+        </div>
+        <Link to="/">
+          <img src={Logo} alt="Logo" />
         </Link>
       </div>
 
@@ -36,18 +56,40 @@ function Navbar() {
           <Link to="/About">About</Link>
           <Link to="/FAQ">FAQ</Link>
           <Link to="/Contact">Contact</Link>
-          </div>
+        </div>
+      </div>
 
       <div className="rightSide">
-      <Searchbar /> {/* Include the SearchBar component */}
-      <button className="iconButton">
-        <AddShoppingCartIcon style={{ color:'white', fontSize: 35 }} />
+        <Searchbar /> {/* Include the SearchBar component */}
+        <button className="iconButton">
+          <AddShoppingCartIcon style={{ color: 'white', fontSize: 35 }} />
         </button>
+        <div className="loginlink" style={{ position: 'relative' }}>
+          <button className="login-button" onClick={toggleLogin}>Login</button>
+          <div
+            className="login-dropdown"
+            style={{
+              display: isLoginOpen ? 'block' : 'none',
+              position: 'absolute',
+              top: '100%',
+              right: 0,
+            }}
+          >
+            {/* Login form */}
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="username">Username:</label>
+              <input type="text" id="username" name="username" />
+              <label htmlFor="password">Password:</label>
+              <input type="password" id="password" name="password" />
+              <button type="submit">Login</button>
+            </form>
+            {!isLoginSuccess && <div className="invalid-credentials">Invalid credentials</div>}
+        <div className="register-link">
+          Don't have an account? <Link to="/register">Register</Link>
+            </div>
+          </div>
         </div>
-        <Link to="/login" className="loginLink">Login</Link>
       </div>
-        
-      
     </div>
   );
 }
