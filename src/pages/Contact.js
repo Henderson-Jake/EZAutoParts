@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../assets/Logo.png';
 import ContactHeaderImage from '../assets/ContactHeaderImage.png';
 import '../styles/ContactStyles.css';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -16,7 +14,6 @@ function Contact() {
             <img src={ContactHeaderImage} alt="Contact Us" className="ContactImage" />
           </div>
           <div className="HeaderOverlay">
-            <h1 className="OverlayTitle" style={{ marginBottom: '20px' }}></h1>
             <p className="OverlaySubtitle"></p>
           </div>
         </div>
