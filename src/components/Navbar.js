@@ -32,24 +32,26 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar">
-      <div className="leftSide">
-        <div className="menu">
-          <button className="menubtn" onClick={toggleMenu}>
-            Menu
-          </button>
-          {isMenuOpen && (
-            <div className="menu-content">
-              <Link to="/Service1">Filters</Link>
-              <Link to="/Service2">Headlights</Link>
-              <Link to="/Service3">Battery</Link>
-            </div>
-          )}
+<div className="navbar">
+  <div className="leftSide">
+    <Link to="/">
+      <img src={Logo} alt="Logo" />
+    </Link>
+    <div className="menu">
+      <button className="menubtn" onClick={toggleMenu}>
+        Menu
+      </button>
+      {isMenuOpen && (
+        <div className="menu-content">
+          <Link to="/Service1">Filters</Link>
+          <Link to="/Service2">Headlights</Link>
+          <Link to="/Service3">Battery</Link>
         </div>
-        <Link to="/">
-          <img src={Logo} alt="Logo" />
-        </Link>
-      </div>
+      )}
+    </div>
+  </div>
+
+
 
       <div className="centerSide">
         <div className="navLinks">
