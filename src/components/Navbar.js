@@ -77,18 +77,32 @@ function Navbar() {
               right: 0,
             }}
           >
-            {/* Login form */}
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="username">Username:</label>
-              <input type="text" id="username" name="username" />
-              <label htmlFor="password">Password:</label>
-              <input type="password" id="password" name="password" />
-              <button type="submit">Login</button>
-            </form>
-            {!isLoginSuccess && <div className="invalid-credentials">Invalid credentials</div>}
-        <div className="register-link">
-          Don't have an account? <Link to="/register">Register</Link>
+            <div
+              className="login-dropdown"
+              style={{
+                display: isLoginOpen ? 'block' : 'none',
+                position: 'absolute',
+                top: '100%',
+                right: 0,
+                backgroundColor: '#f4f4f4',
+                padding: '16px', 
+                borderRadius: '4px', 
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' 
+              }}
+            >
+              {/* Login form */}
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username:</label>
+                <input type="text" id="username" name="username" />
+                <label htmlFor="password">Password:</label>
+                <input type="password" id="password" name="password" />
+                <button type="submit">Login</button>
+              </form>
+              {!isLoginSuccess && <div className="invalid-credentials">Invalid credentials</div>}
+            <div className="register-link">
+                Don't have an account? <Link to="/register">Register</Link>
             </div>
+          </div>
           </div>
         </div>
       </div>
