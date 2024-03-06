@@ -33,7 +33,7 @@ function FAQ() {
   return (
     <div className="faq-container">
       <div className="faq-section">
-        <h1>Freaquently Asked Questions</h1>
+        <h1>Frequently Asked Questions</h1>
         <div className="faq-grid">
           {questionsAnswers.map((qa, index) => (
             <div key={index} className="faq-item" onClick={() => toggleAnswer(index)}>
