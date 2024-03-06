@@ -1,15 +1,21 @@
 .interior-parts {
-    padding: 200px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: calc(100vh - 100px);
+    background-color: #f4f4f4;
+    text-align: center;
+    padding-top: 200px;
+    padding-bottom: 0; 
+    padding-left: 0; 
+    padding-right: 0; 
 }
 
 .parts-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0px;
+    grid-gap: 100px;
     width: fit-content;
 }
 
@@ -21,13 +27,12 @@
 }
 
 .part-item img {
-    max-width: 200px; 
-    max-height: 200px; 
-    width: auto; 
-    height: auto; 
-    object-fit: contain; 
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
-
 
 .part-item h3 {
     margin: 10px 0;
@@ -39,29 +44,57 @@
 
 .part-item button {
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 5px 50px;
     cursor: pointer;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    position: absolute; 
-    bottom: 50px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 100%; 
+    margin-top: 50px; /* Adjust as needed */
 }
-
 
 .pagination button {
     padding: 5px 10px;
     margin: 0 5px;
     cursor: pointer;
+    margin-bottom: 50px
 }
 
 .pagination button.active {
     background-color: #007bff;
     color: white;
+}
+
+/* Add the following styles to your InteriorParts.css */
+
+.ContactFooter {
+    background-color: #17318b; 
+    color: white;
+    padding: 2rem; 
+    text-align: center;
+    font-size: 1rem; /* Changed 'rem' to '1rem' */
+    width: 100%; /* Ensure the footer takes up the whole width */
+}
+
+.ContactFooter a {
+    color: #f9f9f9; 
+    text-decoration: none;
+    padding: 1.25rem; 
+    font-size: 1rem;
+}
+
+.ContactFooter a:hover {
+    text-decoration: underline;
+}
+
+.filters-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.category-filter, .price-filter, .sort-filter {
+    flex-grow: 1;
 }
