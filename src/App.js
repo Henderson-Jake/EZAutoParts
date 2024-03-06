@@ -5,34 +5,22 @@ import About from './pages/About';
 import Navbar from './components/Navbar';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
+import InteriorParts from './pages/InteriorParts'; // Import the InteriorParts component
 
 function App() {
   return (
-      <div className="App">
-        
-
-        <BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
         <Navbar />
         <Routes>
-
-        <Route path="/" element={<Home />} />
-        <Route path ="/about" element={<About />} />
-        <Route path ="/FAQ" element={<FAQ />} />
-        <Route path ="/Contact" element={<Contact />} />
-      
-
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/interior-parts" element={<InteriorParts />} /> {/* Add the InteriorParts route */}
         </Routes>
-        
-        
-        </BrowserRouter>
-
-        
-        
-        
-    
-        
-        </div>
-      
+      </BrowserRouter>
+    </div>
   );
 }
 
