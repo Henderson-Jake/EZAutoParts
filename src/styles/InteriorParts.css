@@ -51,7 +51,7 @@
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 50px; 
 }
 
 .pagination button {
@@ -66,15 +66,14 @@
     color: white;
 }
 
-/* Add the following styles to your InteriorParts.css */
 
 .ContactFooter {
     background-color: #17318b; 
     color: white;
     padding: 2rem; 
     text-align: center;
-    font-size: 1rem; /* Changed 'rem' to '1rem' */
-    width: 100%; /* Ensure the footer takes up the whole width */
+    font-size: 1rem; 
+    width: 100%; 
 }
 
 .ContactFooter a {
