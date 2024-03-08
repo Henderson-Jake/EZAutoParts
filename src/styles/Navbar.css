@@ -84,12 +84,27 @@ body {
   font-size: 16px;
   margin-right: 50px;
   border-radius: 15px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   font-family: 'Arial', sans-serif;
 }
 
 .login-button:hover {
-  background-color: #555;
+  background-color: #900000;
+}
+
+.login-dropdown{
+  padding: 2px;
+}
+.submit-login{
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+.invalid-credentials{
+  font-family: 'Arial', sans-serif;
+  color:red;
+}
+.register-link{
+  font-family: 'Arial', sans-serif;
+  padding-top: 5px;
 }
 
 .searchContainer {
@@ -129,7 +144,7 @@ body {
 }
 
 .searchBar button:hover {
-  background-color: #555;
+  background-color: #900000;
 }
 
 /* Responsive styles */
@@ -184,7 +199,7 @@ body {
   font-family: 'Arial', sans-serif;
 }
 .menubtn:hover{
-  background-color: #555;
+  background-color: #900000;
 }
 
 /* Dropdown content */
