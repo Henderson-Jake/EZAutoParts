@@ -1,15 +1,15 @@
 import React from 'react'
 import '../styles/About.css'
-import Aboutus from '../assets/Aboutus.png'
+import Aboutus from '../assets/aboutus.jpg'
 
 function About() {
   return (
     <div className="Aboutus">
       <div className="AboutusImage">
         <img src={Aboutus} alt="Aboutus" />
-        <div className="OverlayText">About Us</div>
+        <div className="OverlayText"> About Us</div>
     </div>
-    <div className="AboutText">
+    <div>
     <h2>About EZAutoParts</h2>
         <p>Welcome to EZAutoParts, your one-stop e-commerce shop for all your auto part needs! At EZAutoParts, we understand that finding the right auto parts can be a daunting task, especially if you're not a car expert. That's why we've made it our mission to make the search for auto parts easier, more convenient, and more affordable for everyone.</p>
         

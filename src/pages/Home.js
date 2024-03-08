@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import car from '../assets/car.png';
+import car from '../assets/mustang-transformed.png';
 import carlogos from '../assets/carlogos.png';
 import carinterior from '../assets/carinterior.png';
 import bodyparts from '../assets/bodyparts.png';

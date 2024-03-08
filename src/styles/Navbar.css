@@ -20,14 +20,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding-left: 20px;
 }
 
 /* Left side logo */
 .leftSide img {
-  width: 200px;
-  padding: 5px; /* Add some padding around the logo */
-  border-radius: 10px; /* Round the corners of the logo */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  display: flex;
+  width: 190px;
+  scale: 125%;
+  padding: 15px; /* Add some padding around the logo */
 }
 
 /* Centered navigation links */
@@ -46,7 +47,9 @@ body {
   color: white;
   text-decoration: none;
   margin: 0 20px;
-  font-size: calc(14px + 1vw)
+  font-size: calc(14px + 1vw);
+  font-weight: 800;
+  font-family: 'Arial', sans-serif;
 }
 
 /* Right side content */
@@ -72,17 +75,23 @@ body {
 /* Styled login link */
 .login-button {
   background-color: #A00000;
+  scale: 115%;
+  font-weight: bold;
   color: white;
   text-decoration: none;
   cursor: pointer;
   padding: 10px 15px;
   font-size: 16px;
   margin-right: 50px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
 }
 
 .login-button:hover {
-  text-decoration: underline;
+  background-color: #555;
 }
+
 .searchContainer {
   display: flex;
   align-items: center;
@@ -102,15 +111,21 @@ body {
   width: 100%; /* Allow it to shrink */
   padding: 10px;
   margin-right: 100px;
+  border-radius: 5px;
 }
 
 
 .searchBar button {
+  display: flex;
   background-color: #A00000;
+  font-weight: bold;
   color: white;
   border: none;
   padding: 10px 10px;
   cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 2);
+  font-family: 'Arial', sans-serif;
 }
 
 .searchBar button:hover {
@@ -158,10 +173,18 @@ body {
   background-color: #A00000;
   color: white;
   padding: 10px 15px;
+  font-weight: bold;
   font-size: 1rem;
   border: thick #000000;
   cursor: pointer;
   margin: 0; 
+  scale: 115%;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 3);
+  font-family: 'Arial', sans-serif;
+}
+.menubtn:hover{
+  background-color: #555;
 }
 
 /* Dropdown content */
@@ -172,10 +195,13 @@ body {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1001;
+  font-family: 'Arial', sans-serif;
 }
 
 .menu:hover .menu-content {
   display: block;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  border-radius: 15px;
 }
 
 /* Style the dropdown links */
@@ -184,8 +210,11 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  border-radius: 15px;
 }
+
 
 .menu-content a:hover {
   background-color: #f1f1f1;
 }
+

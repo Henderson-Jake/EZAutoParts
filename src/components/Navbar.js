@@ -63,9 +63,9 @@ function Navbar() {
 
       <div className="rightSide">
         <Searchbar /> {/* Include the SearchBar component */}
-        <button className="iconButton">
-          <AddShoppingCartIcon style={{ color: 'white', fontSize: 35 }} />
-        </button>
+        <Link to="/Cart" className="iconButton">
+          <AddShoppingCartIcon style={{ color: 'white', fontSize: 35 }}/>
+        </Link>
         <div className="loginlink" style={{ position: 'relative' }}>
           <button className="login-button" onClick={toggleLogin}>Login</button>
           <div

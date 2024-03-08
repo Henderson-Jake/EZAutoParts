@@ -48,7 +48,7 @@ const VehicleSelectionTool = () => {
   return (
     <div className="VehicleSelectionTool">
       <div className="vehicleInputs">
-        <div>Add Your Vehicle:</div>
+        <div >Add Your Vehicle:</div>
         <select value={year} onChange={(e) => setYear(e.target.value)} required>
           <option value="" disabled>
             Select Year

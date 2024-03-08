@@ -8,7 +8,9 @@
   background-size: cover;
   background-position: center;
 }
-
+h2{
+  font-weight:bold;
+}
 .logo {
   position: absolute;
   top: -25px;
@@ -74,10 +76,29 @@
   color: #A00000;
   text-decoration: none;
 }
+
+
 .back-button {
   position: absolute;
   top: 10px; /* Adjust the top position as needed */
   left: 10px; /* Adjust the left position as needed */
   color: rgb(254, 254, 254);
   font-size: 24px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+.back-button a {
+  text-decoration: none;
+  color: #fff; /* Change the color according to your preference */
+  display: inline-flex;
+  align-items: center;
+}
+
+.back-button a:hover {
+  color: #A00000; /* Change the hover color */
+}
+
+.back-button a svg {
+  margin-right: 5px; /* Adjust the space between the icon and text */
 }

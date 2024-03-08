@@ -1,30 +1,37 @@
 .Aboutus img {
   width: 100%;
-  height: 300px;
   margin-top: 100px;
 }
-  .OverlayText {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    padding: 10px 20px;
-    font-size: 80px
-  }
+.OverlayText {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  font-size: 60px;
+  font-family: 'Arial', sans-serif; 
+}
+h3 {
+  font-size: 30px;
+  font-weight: bold;   
+  font-family: 'Arial', sans-serif;
+  padding-left: 7px;
+  
+}
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  padding-left: 7px;
+}
 
-  .Aboutus p {
-    margin-top: 50px;
-  }
-  h3 {
-    font-size: px;   }
+p {
+  font-size: 20px; 
+  padding-left: 7px;
+}
 
-  p {
-    font-size: 20px; 
-  }
-
-  li{
-    font-size: 20px;
-  }
+li{
+  font-size: 20px;
+}
