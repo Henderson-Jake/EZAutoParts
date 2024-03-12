@@ -14,6 +14,12 @@ function Home() {
   const redirectToInteriorParts = () => {
     navigate('/interior-parts');
   };
+  const redirectToBodyParts = () => {
+    navigate('/body-parts');
+  };
+  const redirectToWheelParts = () => {
+    navigate('/wheel-parts');
+  };
 
   return (
     <div className="home">
@@ -30,11 +36,11 @@ function Home() {
       </div>
       <div className='bodyparts'>
         <img src={bodyparts} alt='carparts'/>
-        <button className='bodyparts-button'>Shop Now</button>
+        <button className='bodyparts-button'onClick={redirectToBodyParts}>Shop Now</button>
       </div>
       <div className='wheels'>
         <img src={wheels} alt='wheels'/>
-        <button className='wheels-button'>Shop Now</button>
+        <button className='wheels-button'onClick={redirectToWheelParts}>Shop Now</button>
       </div>
     </div>
   );

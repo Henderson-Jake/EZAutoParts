@@ -7,6 +7,8 @@ import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Interior from './pages/InteriorParts';
+import Body from './pages/BodyParts';
+import Wheel from './pages/WheelParts';
 
 function App() {
   return (
@@ -34,7 +36,16 @@ function App() {
         <Route path="/interior-parts" element={<>
         <Navbar/>
         <Interior />
+          </>} />
+        <Route path="/body-parts" element={<>
+        <Navbar/>
+        <Body />
         </>} />
+        <Route path="/wheel-parts" element={<>
+        <Navbar/>
+        <Wheel />
+        </>} />
+
         <Route path="/register" element={<>
         <Register />
         </>} /> 
