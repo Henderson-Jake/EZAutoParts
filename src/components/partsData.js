@@ -29,10 +29,10 @@ export const bodyPartsData = [
     { id: "#24-DL", name: 'Duralast Battery BCI Group Size 24 600 CCA 24-DL', price: 'MSRP $194.99', category: 'Batteries' },
     { id: "#79-DL", name: 'Duralast Battery BCI Group Size 79 840 CCA 79-DL', price: 'MSRP $209.99', category: 'Batteries' },
     { id: "#51-DL", name: 'Duralast Battery BCI Group Size 51 500 CCA 51-DL', price: 'MSRP $179.99', category: 'Batteries' },
-    { id: " 9004XV-2", name: 'XtraVision Headlight and Fog Light Bulb 9004XV-2', price: 'MSRP $39.99', category: 'Light Bulbs' },
-    { id: "9003XV-2", name: 'XtraVision Headlight and Fog Light Bulb 9003XV-2', price: 'MSRP $39.99', category: 'Light Bulbs' },
-    { id: "H7XV-2", name: 'XtraVision Headlight and Fog Light Bulb H7XV-2', price: 'MSRP $39.99', category: 'Light Bulbs' },
-    { id: "#H13XV-2", name: 'XtraVision Headlight and Fog Light Bulb H13XV-2', price: 'MSRP $39.99', category: 'Light Bulbs' },
+    { id: " 9004XV-2", name: 'XtraVision Headlight and Fog Light Bulb 9004XV-2', price: 'MSRP $39.99', category: 'Headlight Bulbs' },
+    { id: "9003XV-2", name: 'XtraVision Headlight and Fog Light Bulb 9003XV-2', price: 'MSRP $39.99', category: 'Headlight Bulbs' },
+    { id: "H7XV-2", name: 'XtraVision Headlight and Fog Light Bulb H7XV-2', price: 'MSRP $39.99', category: 'Headlight Bulbs' },
+    { id: "#H13XV-2", name: 'XtraVision Headlight and Fog Light Bulb H13XV-2', price: 'MSRP $39.99', category: 'Headlight Bulbs' },
     { id: "#DL3506-16-2", name: 'Duralast Alternator DL3506-16-2', price: 'MSRP $161.99', category: 'Alternators' },
     { id: "#DL7294-12", name: 'Duralast Alternator DL7294-12', price: 'MSRP $102.99', category: 'Alternators' },
     { id: "#DL7292-9", name: 'Duralast Alternator DL7292-9', price: 'MSRP $128.99', category: 'Alternators' },
@@ -51,5 +51,6 @@ export const wheelPartsData = [
     { id: "D2202", name: 'Duralast Ceramic Brake Pads D2202', price: 'MSRP $35.99', category: 'Brake Pads' },
     { id: "MKD917", name: 'Duralast Semi-Metallic Brake Pads MKD917', price: 'MSRP $39.99', category: 'Brake Pads' },
     { id: "D2116", name: 'Duralast Ceramic Brake Pads D2116', price: 'MSRP $37.99', category: 'Brake Pads' },
+    
 
 ];

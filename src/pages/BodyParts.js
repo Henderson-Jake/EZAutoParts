@@ -5,7 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-function BodyParts() {
+function BodyParts({filtersOnly, batteriesOnly, headlightsOnly}) {
     const [parts, setParts] = useState( bodyPartsData);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedPriceRange, setSelectedPriceRange] = useState('All');
@@ -30,6 +30,7 @@ function BodyParts() {
     const endIndex = startIndex + itemsPerPage;
 
     const sortedAndFilteredParts = parts
+    .filter(part => (filtersOnly && part.category === 'Filters') || (batteriesOnly && part.category === 'Batteries') ||  (headlightsOnly && part.category === 'Headlight Bulbs') || (!filtersOnly && !batteriesOnly && !headlightsOnly))
         .filter(part => {
             const price = parseFloat(part.price.replace(/[^\d.]/g, ''));
             switch (selectedPriceRange) {
@@ -62,12 +63,16 @@ function BodyParts() {
                     return 0;
             }
         });
+  
+      const currentItems = sortedAndFilteredParts.slice(startIndex, endIndex);
 
-    const currentItems = sortedAndFilteredParts.slice(startIndex, endIndex);
 
     return (
+      
         <div className="body-parts">
-            <h1 className="body-parts-title">Body Parts</h1>
+           <h1 className="body-parts-title">
+    {filtersOnly ? 'Filters' : (batteriesOnly ? 'Batteries' : (headlightsOnly ? 'Headlight Bulbs' : 'Body Parts'))}
+</h1>
             <div className="filters-container">
                 <div className="category-filter">
                     <select onChange={(e) => setSelectedCategory(e.target.value)}>
@@ -75,7 +80,7 @@ function BodyParts() {
                         <option value="Alternators">Alternators</option>
                         <option value="Batteries">Batteries</option>
                         <option value="Filters">Filters</option>
-                        <option value="Headlight bulbs">Headlight bulbs</option>
+                        <option value="Headlight Bulbs">Headlight Bulbs</option>
                         <option value="Radiators">Radiators</option>
                         <option value="Spark Plugs">Spark Plugs</option>
                         <option value="Windshield Wipers">Windshield Wipers</option>

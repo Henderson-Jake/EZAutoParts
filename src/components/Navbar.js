@@ -43,9 +43,9 @@ function Navbar() {
       </button>
       {isMenuOpen && (
         <div className="menu-content">
-          <Link to="/Service1">Filters</Link>
-          <Link to="/Service2">Headlights</Link>
-          <Link to="/Service3">Battery</Link>
+          <Link to="/body-parts/filters">Filters</Link>
+          <Link to="/body-parts/Headlight-bulbs">Headlights</Link>
+          <Link to="/body-parts/batteries">Battery</Link>
         </div>
       )}
     </div>

@@ -45,6 +45,22 @@ function App() {
         <Navbar/>
         <Wheel />
         </>} />
+        <Route path="/body-parts/filters" element={<>
+        <Navbar />
+        <Body filtersOnly />
+        </>} />
+        <Route path="/body-parts/headlight-bulbs" element={<>
+        <Navbar />
+        <Body headlightsOnly />
+        </>} />
+        <Route path="/body-parts/batteries" element={<>
+        <Navbar />
+        <Body batteriesOnly />
+        </>} />
+
+
+
+  
 
         <Route path="/register" element={<>
         <Register />
