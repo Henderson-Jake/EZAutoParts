@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { bodyPartsData, partsData, wheelPartsData } from '../components/partsData'
+import { bodyPartsData, wheelPartsData } from '../components/partsData'
 import { useNavigate } from 'react-router-dom';
 import car from '../assets/mustang-transformed.png';
 import carlogos from '../assets/carlogos.png';
@@ -12,9 +12,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-
 function Home() {
   const [popularItems, setPopularItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const selectedItems = [
@@ -32,8 +32,6 @@ function Home() {
     };
     loadImages();
   }, []);
-
-  const navigate = useNavigate();
 
   const redirectToInteriorParts = () => {
     navigate('/interior-parts');
@@ -80,6 +78,14 @@ function Home() {
           ))}
         </div>
       </div>
+      <div className="map-bar">
+        <div className="bar"></div>
+        <div className="popular-items-text">Need a Mechanic ?</div>
+     
+        <div id="map" style={{ height: '350px', width: '50%' }}>
+          <iframe src="https://my.atlist.com/map/ca2f73e3-3605-4b55-b10b-fcb838c59833/?share=true" allow="geolocation 'self' https://my.atlist.com" width="100%" height="300px" loading="lazy" frameborder="0" scrolling="no" allowfullscreen id="atlist-embed"></iframe>
+        </div>
+      </div>
       <footer className="ContactFooter">
         <div className="ContactInfo">
           <h2>Contact Information</h2>
@@ -109,4 +115,3 @@ function Home() {
 }
 
 export default Home;
-
