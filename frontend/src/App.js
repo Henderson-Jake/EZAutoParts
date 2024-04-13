@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Interior from './pages/InteriorParts';
 import Body from './pages/BodyParts';
 import Wheel from './pages/WheelParts';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
             <Home />
           </>}
         />
+        <Route path="/cart" element={<>
+          <Navbar />
+          <Cart />
+        </>} />
         <Route path="/about" element={<>
           <Navbar />
           <About />
@@ -56,6 +61,14 @@ function App() {
         <Route path="/body-parts/batteries" element={<>
         <Navbar />
         <Body batteriesOnly />
+        </>} />
+        <Route path="/body-parts/spark-plugs" element={<>
+        <Navbar />
+        <Body sparkPlugsOnly />
+        </>} />
+        <Route path="/body-parts/alternators" element={<>
+        <Navbar />
+        <Body alternatorsOnly />
         </>} />
 
 

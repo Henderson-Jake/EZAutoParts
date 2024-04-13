@@ -72,8 +72,6 @@ function WheelParts() {
                 <div className="category-filter">
                     <select onChange={(e) => setSelectedCategory(e.target.value)}>
                         <option value="All">All Categories</option>
-                        <option value="Tires">Tires</option>
-                        <option value="Rims">Rims</option>
                         <option value="Brake Pads">Brake Pads</option>
                         <option value="Brake Rotors">Brake Rotors</option>
                         <option value="Sensors">Sensors</option>

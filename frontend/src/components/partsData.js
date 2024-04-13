@@ -45,12 +45,16 @@ export const bodyPartsData = [
 ];
 
 export const wheelPartsData = [
-    { id: "#ST4126DL", name: 'Duralast Tire Pressure Monitoring Sensor ST4126DL', price:'MSRP $136.99', category: 'Sensor'},
-    { id: "#ST4127DL", name: 'Duralast Tire Pressure Monitoring Sensor ST4127DL', price: 'MSRP $146.99', category: 'Sensor' },
+    { id: "#ST4126DL", name: 'Duralast Tire Pressure Monitoring Sensor ST4126DL', price:'MSRP $136.99', category: 'Sensors'},
+    { id: "#ST4127DL", name: 'Duralast Tire Pressure Monitoring Sensor ST4127DL', price: 'MSRP $146.99', category: 'Sensors' },
     { id: "#MKD1108", name: 'Duralast Semi-Metallic Brake Pads MKD1108', price: 'MSRP $42.99', category: 'Brake Pads' },
     { id: "D2202", name: 'Duralast Ceramic Brake Pads D2202', price: 'MSRP $35.99', category: 'Brake Pads' },
     { id: "MKD917", name: 'Duralast Semi-Metallic Brake Pads MKD917', price: 'MSRP $39.99', category: 'Brake Pads' },
     { id: "D2116", name: 'Duralast Ceramic Brake Pads D2116', price: 'MSRP $37.99', category: 'Brake Pads' },
+    { id: "#3465", name: 'Duralast Disc Brake Rotor 3465', price: 'MSRP $54.99', category: 'Brake Rotors' },
+    { id: "#3295", name: 'Duralast Disc Brake Rotor 3295', price: 'MSRP $63.99', category: 'Brake Rotors' },
+    { id: "#71901", name: 'Duralast Disc Brake Rotor 71902', price: 'MSRP $109.99', category: 'Brake Rotors'},
+    { id: "#34207", name: 'Duralast Disc Brake Rotor 34207', price: "MSRP $73.99", category: 'Brake Rotors'},
     
 
 ];

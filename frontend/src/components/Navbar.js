@@ -20,6 +20,11 @@ function Navbar() {
     setIsMenuOpen(false); // Close the menu dropdown if open
   };
 
+  const handleSearch = (query) => {
+    // Handle search functionality here
+    console.log('Search query:', query);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Check login credentials here (dummy check for demonstration)
@@ -32,26 +37,26 @@ function Navbar() {
   };
 
   return (
-<div className="navbar">
-  <div className="leftSide">
-    <Link to="/">
-      <img src={Logo} alt="Logo" />
-    </Link>
-    <div className="menu">
-      <button className="menubtn" onClick={toggleMenu}>
-        Menu
-      </button>
-      {isMenuOpen && (
-        <div className="menu-content">
-          <Link to="/body-parts/filters">Filters</Link>
-          <Link to="/body-parts/Headlight-bulbs">Headlights</Link>
-          <Link to="/body-parts/batteries">Battery</Link>
+    <div className="navbar">
+      <div className="leftSide">
+        <Link to="/">
+          <img src={Logo} alt="Logo" />
+        </Link>
+        <div className="menu">
+          <button className="menubtn" onClick={toggleMenu}>
+            Menu
+          </button>
+          {isMenuOpen && (
+            <div className="menu-content">
+              <Link to="/body-parts/alternators">Alternators</Link>
+              <Link to="/body-parts/batteries">Battery</Link>
+              <Link to="/body-parts/filters">Filters</Link>
+              <Link to="/body-parts/Headlight-bulbs">Headlights</Link>
+              <Link to="/body-parts/spark-plugs">Spark Plugs</Link>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-  </div>
-
-
+      </div>
 
       <div className="centerSide">
         <div className="navLinks">
@@ -62,12 +67,14 @@ function Navbar() {
       </div>
 
       <div className="rightSide">
-        <Searchbar /> {/* Include the SearchBar component */}
+        <Searchbar onSearch={handleSearch} /> {/* Include the SearchBar component */}
         <Link to="/Cart" className="iconButton">
-          <AddShoppingCartIcon style={{ color: 'white', fontSize: 35 }}/>
+          <AddShoppingCartIcon style={{ color: 'white', fontSize: 35 }} />
         </Link>
         <div className="loginlink" style={{ position: 'relative' }}>
-          <button className="login-button" onClick={toggleLogin}>Login</button>
+          <button className="login-button" onClick={toggleLogin}>
+            Login
+          </button>
           <div
             className="login-dropdown"
             style={{
@@ -86,9 +93,9 @@ function Navbar() {
                 top: '100%',
                 right: 0,
                 backgroundColor: '#f4f4f4',
-                padding: '20px', 
-                borderRadius: '4px', 
-                boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.5)' 
+                padding: '20px',
+                borderRadius: '4px',
+                boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.5)',
               }}
             >
               {/* Login form */}
@@ -97,13 +104,17 @@ function Navbar() {
                 <input type="text" id="username" name="username" />
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" name="password" />
-                <button className="submit-login" type="submit">Login</button>
+                <button className="submit-login" type="submit">
+                  Login
+                </button>
               </form>
-              {!isLoginSuccess && <div className="invalid-credentials">Invalid credentials</div>}
-            <div className="register-link">
+              {!isLoginSuccess && (
+                <div className="invalid-credentials">Invalid credentials</div>
+              )}
+              <div className="register-link">
                 Don't have an account? <Link to="/register">Register</Link>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>

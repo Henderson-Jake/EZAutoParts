@@ -1,0 +1,21 @@
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .searchResults {
+    margin-top: 10px; /* Adjust as needed */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: white;
+    width: 100%;
+  }
+
+  .small-image {
+    width: 110px; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10 auto;
+  }
+  
+  

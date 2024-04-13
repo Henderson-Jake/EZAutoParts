@@ -1,17 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { partsData, bodyPartsData, wheelPartsData } from '../components/partsData'; // Assuming partsData.js is in the same directory
+import "../styles/Searchbar.css"; // Assuming CSS file is in
 
-function SearchBar() {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [partsWithImages, setPartsWithImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      setLoading(true);
+      const resultsWithImages = await Promise.all(searchResults.map(async (result) => {
+        const imageModule = await import(`../assets/${result.name.replace(/[^a-zA-Z0-9]/g, '')}.png`);
+        return { ...result, imageUrl: imageModule.default };
+      }));
+      setPartsWithImages(resultsWithImages);
+      setLoading(false);
+    };
+    if (searchResults.length > 0) {
+      loadImages();
+    }
+  }, [searchResults]);
 
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    const { value } = event.target;
+    setSearchTerm(value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add your search logic here, such as calling an API with the search term
     console.log('Searching for:', searchTerm);
-    setSearchTerm(''); // Clear the input after submitting
+    const results = [...partsData, ...bodyPartsData, ...wheelPartsData].filter(
+      (item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.id.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setSearchResults(results);
+  };
+
+  const handleSelectItem = (item) => {
+    setSelectedItem(item);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedItem(null);
+  };
+
+  const handleAddToCart = (item) => {
+    // Implement the logic to add the item to the cart
+    console.log('Adding item to cart:', item);
+  };
+
+  const handleCloseResults = () => {
+    setSearchTerm('');
+    setSearchResults([]);
   };
 
   return (
@@ -22,11 +67,37 @@ function SearchBar() {
           placeholder="Search..."
           value={searchTerm}
           onChange={handleChange}
+          list="parts"
         />
+        <datalist id="parts">
+          {[...partsData, ...bodyPartsData, ...wheelPartsData].map((item) => (
+            <option key={item.id} value={item.name} />
+          ))}
+        </datalist>
         <button type="submit">Search</button>
       </form>
+      {searchResults.length > 0 && (
+        <div className="searchResults">
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            partsWithImages.map((item) => (
+              <div key={item.id} onClick={() => handleSelectItem(item)}>
+                <img className="small-image" src={item.imageUrl} alt={item.name} />
+                <h3>{item.name}</h3>
+                <p>ID: {item.id}</p>
+                <p>Price: {item.price}</p>
+                <p>Category: {item.category}</p>
+                <button onClick={() => handleAddToCart(item)}>Add to Cart</button> 
+                 <button className="close-button" onClick={handleCloseResults}>Close</button>
+               
+              </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default SearchBar;

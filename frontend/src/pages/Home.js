@@ -85,6 +85,7 @@ function Home() {
         <div id="map" style={{ height: '350px', width: '50%' }}>
           <iframe src="https://my.atlist.com/map/ca2f73e3-3605-4b55-b10b-fcb838c59833/?share=true" allow="geolocation 'self' https://my.atlist.com" width="100%" height="300px" loading="lazy" frameborder="0" scrolling="no" allowfullscreen id="atlist-embed"></iframe>
         </div>
+        
       </div>
       <footer className="ContactFooter">
         <div className="ContactInfo">
