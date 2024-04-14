@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "root",
-    "password": "EzAutoParts123",
+    "username": "admin",
+    "password": "EzAutoParts123!",
     "database": "ezautoparts",
-    "host": "localhost",
+    "host": "ezautoparts.cbom6kmu2l3o.us-east-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": "admin",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "admin",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
