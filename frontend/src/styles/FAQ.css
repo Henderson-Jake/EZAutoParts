@@ -2,17 +2,14 @@
     padding: 200px; 
     background-color: #f4f4f4;
     text-align: center;
-    background-image: url('../assets/FAQ Background.png');
-    background-size: cover; 
-    background-position: center;
 }
 
 .faq-section h1 {
     font-size: 3rem;
     margin-bottom: 20px; 
-    color: rgb(255, 255, 255);
-    background-color: #1fc1bb;
+    color: #000;  
 }
+
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -21,10 +18,10 @@
 
 .faq-item {
     padding: 10px;
-    background-color: #00ff77;
+    background-color: #fff; 
     cursor: pointer;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 5px; 
     transition: all 0.3s ease;
     box-sizing: border-box; 
 }
@@ -35,19 +32,21 @@
 
 .faq-question {
     padding: 10px;
-    background-color: #1fc1bb;
-    color: white;
+    background-color: #ffffff; 
+    color: #000000; 
     border: none;
     cursor: pointer;
     text-align: left;
     font-weight: bold;
     box-sizing: border-box;
-    height: 140px; 
+    height: 140px;
+    border-radius: 5px; 
 }
 
 .faq-answer {
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #fff; 
     margin-top: 10px;
     height: 140px; 
+    border-radius: 5px; 
 }
