@@ -25,6 +25,11 @@ const SearchBar = () => {
     }
   }, [searchResults]);
 
+  useEffect(() => {
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    setCartItems(storedCartItems);
+  }, []);
+
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
@@ -52,24 +57,24 @@ const SearchBar = () => {
   };
 
   const addToCart = (item) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const existingItem = existingCartItems.find((cartItem) => cartItem.id === item.id);
     if (existingItem) {
-      const updatedCartItems = cartItems.map((cartItem) => {
+      const updatedCartItems = existingCartItems.map((cartItem) => {
         if (cartItem.id === item.id) {
           return { ...cartItem, quantity: cartItem.quantity + 1 };
         }
         return cartItem;
       });
-      setCartItems(updatedCartItems);
       localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+      setCartItems(updatedCartItems);
     } else {
       const newItem = { ...item, quantity: 1 };
-      const updatedCartItems = [...cartItems, newItem];
-      setCartItems(updatedCartItems);
+      const updatedCartItems = [...existingCartItems, newItem];
       localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+      setCartItems(updatedCartItems);
     }
   };
-
   const handleCloseResults = () => {
     setSearchTerm('');
     setSearchResults([]);

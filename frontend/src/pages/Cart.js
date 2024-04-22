@@ -5,20 +5,21 @@ function Cart() {
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [checkoutMessage, setCheckoutMessage] = useState('');
-
+    
     useEffect(() => {
-    // Retrieve cart items from local storage
-        const storedCartItems = localStorage.getItem('cartItems');
-        if (storedCartItems) {
-        setCartItems(JSON.parse(storedCartItems));
-        }
-    }, []);
+        // Retrieve cart items from local storage
+        const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        setCartItems(storedCartItems);
+      }, []);
 
     useEffect(() => {
         // Calculate total price whenever cart items change
-        const total = cartItems.reduce((acc, item) => acc + (parseFloat(item.price.replace('MSRP $', '')) * item.quantity), 0);
+        const total = cartItems.reduce((acc, item) => {
+          const price = parseFloat(item.price.replace('MSRP $', '').replace(',', ''));
+          return acc + price * item.quantity;
+        }, 0);
         setTotalPrice(total.toFixed(2));
-      }, [cartItems]);
+    }, [cartItems]);
 
     const removeFromCart = (itemId) => {
         const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
