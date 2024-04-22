@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { partsData, bodyPartsData, wheelPartsData } from '../components/partsData'; // Assuming partsData.js is in the same directory
+import { partsData, bodyPartsData, wheelPartsData } from './partsData'; // Assuming partsData.js is in the same directory
 import "../styles/Searchbar.css"; // Assuming CSS file is in
 
 const SearchBar = () => {
