@@ -3,12 +3,14 @@ import Logo from '../assets/Logo.png';
 import { Link } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Searchbar from './Searchbar';
+import axios from 'axios';
 import '../styles/Navbar.css';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isLoginSuccess, setIsLoginSuccess] = useState(true); // Track login success
+  const [isLoginSuccess, setIsLoginSuccess] = useState(true); // This is to track login success
+  const [error, setError] = useState(''); // This is to track login error
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -25,14 +27,28 @@ function Navbar() {
     console.log('Search query:', query);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Check login credentials here (dummy check for demonstration)
-    if (e.target.username.value === 'username' && e.target.password.value === 'password') {
-      setIsLoginSuccess(true);
-      // Perform login actions (e.g., redirect, store user info in state)
-    } else {
+    try {
+      const response = await axios.post('http://localhost:3001/users/login', {
+        email: e.target.username.value,
+        password: e.target.password.value
+      });
+
+      // When authentication is successful
+      if (response.status === 200) {
+        setIsLoginSuccess(true);
+        // Perform login actions right hhere (such as redirect, store user info in state, etc...)
+        alert('Authentication successful!');
+      }
+    } catch (error) {
+      // Handles any authentication error
       setIsLoginSuccess(false);
+      if (error.response && error.response.data && error.response.data.error) {
+        setError(error.response.data.error);
+      } else {
+        setError('Internal server error');
+      }
     }
   };
 
@@ -108,9 +124,7 @@ function Navbar() {
                   Login
                 </button>
               </form>
-              {!isLoginSuccess && (
-                <div className="invalid-credentials">Invalid credentials</div>
-              )}
+              {!isLoginSuccess && <div className="invalid-credentials">{error}</div>}
               <div className="register-link">
                 Don't have an account? <Link to="/register">Register</Link>
               </div>
