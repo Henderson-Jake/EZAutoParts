@@ -17,6 +17,7 @@ import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
 
 function Home() {
   const [popularItems, setPopularItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,6 +49,25 @@ function Home() {
   };
   const redirectToWheelParts = () => {
     navigate("/wheel-parts");
+  };
+
+  const addToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((cartItem) => {
+        if (cartItem.id === item.id) {
+          return { ...cartItem, quantity: cartItem.quantity + 1 };
+        }
+        return cartItem;
+      });
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    } else {
+      const newItem = { ...item, quantity: 1 };
+      const updatedCartItems = [...cartItems, newItem];
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    }
   };
 
   return (
@@ -119,7 +139,7 @@ function Home() {
               <img src={item.imageUrl} alt={item.name} />
               <h3>{item.name}</h3>
               <p>{item.price}</p>
-              <button>Add to Cart</button>
+              <button onClick={() => addToCart(item)}>Add to Cart</button>
             </div>
           ))}
         </div>

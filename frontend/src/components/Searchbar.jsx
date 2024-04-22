@@ -8,6 +8,7 @@ const SearchBar = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [partsWithImages, setPartsWithImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const loadImages = async () => {
@@ -50,9 +51,23 @@ const SearchBar = () => {
     setSelectedItem(null);
   };
 
-  const handleAddToCart = (item) => {
-    // Implement the logic to add the item to the cart
-    console.log('Adding item to cart:', item);
+  const addToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((cartItem) => {
+        if (cartItem.id === item.id) {
+          return { ...cartItem, quantity: cartItem.quantity + 1 };
+        }
+        return cartItem;
+      });
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    } else {
+      const newItem = { ...item, quantity: 1 };
+      const updatedCartItems = [...cartItems, newItem];
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    }
   };
 
   const handleCloseResults = () => {
@@ -89,7 +104,7 @@ const SearchBar = () => {
                 <p>ID: {item.id}</p>
                 <p>Price: {item.price}</p>
                 <p>Category: {item.category}</p>
-                <button onClick={() => handleAddToCart(item)}>Add to Cart</button> 
+                <button onClick={() => addToCart(item)}>Add to Cart</button> 
                 {index === partsWithImages.length - 1 && <button className="close-button" onClick={handleCloseResults}>Close</button>}
               </div>
             ))

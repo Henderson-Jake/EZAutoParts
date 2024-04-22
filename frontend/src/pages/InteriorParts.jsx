@@ -11,6 +11,7 @@ function InteriorParts() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPriceRange, setSelectedPriceRange] = useState("All");
   const [sortType, setSortType] = useState("default");
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const loadImages = async () => {
@@ -72,6 +73,25 @@ function InteriorParts() {
 
   const currentItems = sortedAndFilteredParts.slice(startIndex, endIndex);
 
+  const addToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((cartItem) => {
+        if (cartItem.id === item.id) {
+          return { ...cartItem, quantity: cartItem.quantity + 1 };
+        }
+        return cartItem;
+      });
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    } else {
+      const newItem = { ...item, quantity: 1 };
+      const updatedCartItems = [...cartItems, newItem];
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    }
+  };
+
   return (
     <div className="interiorParts-section">
       <div className="interior-parts">
@@ -118,7 +138,7 @@ function InteriorParts() {
               <img src={part.imageUrl} alt={part.name} />
               <h3>{part.name}</h3>
               <p>{part.price}</p>
-              <button>Add to Cart</button>
+              <button onClick={() => addToCart(part)}>Add to Cart</button>
             </div>
           ))}
         </div>
