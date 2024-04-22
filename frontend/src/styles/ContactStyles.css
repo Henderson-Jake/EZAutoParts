@@ -1,5 +1,4 @@
 .ContactContainer {
-  border: 1px red solid;
   background-image: linear-gradient(to top, #521515, #410505e5);
   color: white;
   display: flex;

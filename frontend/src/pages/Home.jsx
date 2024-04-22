@@ -55,12 +55,12 @@ function Home() {
         {/* <img src={car} alt="car" /> */}
         <div
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${car})`,
+            backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(${car})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             width: "100%",
-            height: "30rem",
+            height: "43rem",
             overflow: "hidden",
           }}
         ></div>

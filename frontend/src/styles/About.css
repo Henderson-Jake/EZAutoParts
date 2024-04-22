@@ -32,10 +32,10 @@
 }
 
 .OverlayText {
-  position: absolute;
+  position: absolute; /* or absolute */
+  left: 50%;
   top: 50%;
-  left: 40%;
-  /* transform: translate(-50%, -75%); */
+  transform: translateX(-50%);
   font-weight: bold;
   color: #6e0d0d;
   background-color: rgba(255, 255, 255, 0.849);
@@ -43,6 +43,8 @@
   padding: 10px 20px;
   font-size: 40px;
 }
+
+
 .about-main h3 {
   font-size: 30px;
   font-weight: bold;
