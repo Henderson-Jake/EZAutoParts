@@ -34,6 +34,7 @@ const SearchBar = () => {
     console.log('Searching for:', searchTerm);
     const results = [...partsData, ...bodyPartsData, ...wheelPartsData].filter(
       (item) =>
+        searchTerm.trim() === '' ||  // Show all items when search term is empty
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.id.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -77,11 +78,11 @@ const SearchBar = () => {
         <button type="submit">Search</button>
       </form>
       {searchResults.length > 0 && (
-        <div className="searchResults">
+        <div className="searchResults" style={{ position: 'absolute', top: '100px', left: '50%', transform: 'translateX(-50%)', zIndex: '9999', maxHeight: '300px', overflowY: 'auto' }}>
           {loading ? (
             <p>Loading...</p>
           ) : (
-            partsWithImages.map((item) => (
+            partsWithImages.map((item, index) => (
               <div key={item.id} onClick={() => handleSelectItem(item)}>
                 <img className="small-image" src={item.imageUrl} alt={item.name} />
                 <h3>{item.name}</h3>
@@ -89,8 +90,7 @@ const SearchBar = () => {
                 <p>Price: {item.price}</p>
                 <p>Category: {item.category}</p>
                 <button onClick={() => handleAddToCart(item)}>Add to Cart</button> 
-                 <button className="close-button" onClick={handleCloseResults}>Close</button>
-               
+                {index === partsWithImages.length - 1 && <button className="close-button" onClick={handleCloseResults}>Close</button>}
               </div>
             ))
           )}

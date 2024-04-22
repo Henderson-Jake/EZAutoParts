@@ -9,6 +9,7 @@ import wheels from "../assets/wheels.png";
 import VehicleSelectionTool from "../components/VehicleSelectionTool";
 import "../styles/Home.css";
 import Footer from "./Footer";
+import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
 // import FacebookIcon from "@mui/icons-material/Facebook";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 // import InstagramIcon from "@mui/icons-material/Instagram";
@@ -124,17 +125,35 @@ function Home() {
         </div>
       </div>
       <div className="map-bar">
-        <div className="bar"></div>
-        <p>Need a Mechanic ?</p>
-     
-        <div id="map" style={{ height: '350px', width: '50%' }}>
-          <iframe src="https://my.atlist.com/map/ca2f73e3-3605-4b55-b10b-fcb838c59833/?share=true" allow="geolocation 'self' https://my.atlist.com" width="100%" height="300px" loading="lazy" frameborder="0" scrolling="no" allowfullscreen id="atlist-embed"></iframe>
-        </div>
-        
-      </div>
+  <div className="bar"></div>
+  <p>Need a Mechanic ?</p>
+  <LoadScript googleMapsApiKey="AIzaSyDIhPEYXCDVjQxVUjOVZ94ZsOiWZknow30">
+    <GoogleMap
+      mapContainerStyle={{
+        height: "400px",
+        width: "100%"
+      }}
+      center={{ lat: -25.344, lng: 131.031 }}
+      zoom={4}
+    >
+      <GoogleMap
+  mapContainerStyle={{
+    height: "400px",
+    width: "100%"
+  }}
+  center={{ lat: 29.5849, lng: -98.6215 }} // UTSA coordinates
+  zoom={12}
+>
+  <Marker position={{ lat: 29.5849, lng: -98.6215 }} />
+</GoogleMap>
+    </GoogleMap>
+  </LoadScript>
+  </div>
+
       <Footer/>
     </div>
   );
 }
 
 export default Home;
+
