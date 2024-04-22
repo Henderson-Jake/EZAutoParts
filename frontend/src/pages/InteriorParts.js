@@ -4,34 +4,35 @@ import "../styles/InteriorParts.css";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import ProductList from '../components/ProductList';
 
 function InteriorParts() {
-    const [parts, setParts] = useState(partsData);
+    const [products, setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedPriceRange, setSelectedPriceRange] = useState('All');
     const [sortType, setSortType] = useState('default');
 
     useEffect(() => {
         const loadImages = async () => {
-            const partsWithImages = await Promise.all(parts.map(async (part) => {
-                const imageModule = await import(`../assets/${part.name.replace(/[^a-zA-Z0-9]/g, '')}.png`);
-                return { ...part, imageUrl: imageModule.default };
+            const partsWithImages = await Promise.all(products.map(async (product) => {
+                const imageModule = await import(`../assets/${product.name.replace(/[^a-zA-Z0-9]/g, '')}.png`);
+                return { ...product, imageUrl: imageModule.default };
             }));
-            setParts(partsWithImages);
+            setProducts(partsWithImages);
         };
         loadImages();
     }, []);
 
     const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = Math.ceil(parts.length / itemsPerPage);
+    const totalPages = Math.ceil(products.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const sortedAndFilteredParts = parts
-        .filter(part => {
-            const price = parseFloat(part.price.replace(/[^\d.]/g, ''));
+    const sortedAndFilteredParts = products
+        .filter(product => {
+            const price = parseFloat(product.price.replace(/[^\d.]/g, ''));
             switch (selectedPriceRange) {
                 case '$0 - $100':
                     return price <= 100;
@@ -47,7 +48,7 @@ function InteriorParts() {
                     return true;
             }
         })
-        .filter(part => selectedCategory === 'All' || part.category === selectedCategory)
+        .filter(product => selectedCategory === 'All' || product.category === selectedCategory)
         .sort((a, b) => {
             const priceA = parseFloat(a.price.replace(/[^\d.]/g, ''));
             const priceB = parseFloat(b.price.replace(/[^\d.]/g, ''));
@@ -67,6 +68,7 @@ function InteriorParts() {
 
     return (
         <div className="interior-parts">
+            <ProductList products={products} setProducts={setProducts} />
             <h1 className="interior-parts-title">Interior Parts</h1>
             <div className="filters-container">
                 <div className="category-filter">
@@ -101,11 +103,11 @@ function InteriorParts() {
                 </div>
             </div>
             <div className="parts-grid">
-                {currentItems.map(part => (
-                    <div key={part.id} className="part-item">
-                        <img src={part.imageUrl} alt={part.name} />
-                        <h3>{part.name}</h3>
-                        <p>{part.price}</p>
+                {currentItems.map(product => (
+                    <div key={product.id} className="part-item">
+                        <img src={product.imageUrl} alt={product.name} />
+                        <h3>{product.name}</h3>
+                        <p>{product.price}</p>
                         <button>Add to Cart</button>
                     </div>
                 ))}
